@@ -57,7 +57,7 @@ sleep 2
 
 function bootstrap {
 	config_path="$HOME/massa/massa-node/base_config/config.toml"
-	bootstrap_list=`wget -qO- https://github.com/mreagleowl/Massa/blob/master/bootstraplist/bootstrap_list.txt | shuf -n50 | awk '{ print "        "$0"," }'`
+	bootstrap_list=`wget -qO- https://raw.githubusercontent.com/mreagleowl/Massa/master/bootstraplist/bootstrap_list.txt | shuf -n50 | awk '{ print "        "$0"," }'`
 	len=`wc -l < "$config_path"`
 	start=`grep -n bootstrap_list "$config_path" | cut -d: -f1`
 	end=`grep -n "\[optionnal\] port on which to listen" "$config_path" | cut -d: -f1`
@@ -74,7 +74,7 @@ ${bootstrap_list}
 	#grep bootstrap_whitelist_file $config_path || sed -i "/\[bootstrap\]/a  bootstrap_whitelist_file = \"base_config/bootstrap_whitelist.json\"" "$config_path"
 	#grep bootstrap_blacklist_file $config_path || sed -i "/\[bootstrap\]/a  bootstrap_blacklist_file = \"base_config/bootstrap_blacklist.json\"" "$config_path"
   #sudo systemctl restart massa
-  wget -P $HOME/massa/massa-node/base_config/ https://github.com/mreagleowl/Massa/blob/master/whitelist/bootstrap_whitelist.json
+  wget -P $HOME/massa/massa-node/base_config/ https://raw.githubusercontent.com/mreagleowl/Massa/master/whitelist/bootstrap_whitelist.json
   echo '....done'
 }
 
