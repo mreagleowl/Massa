@@ -70,15 +70,16 @@ Ok!.
 EOF
 sleep 2
 
-echo '-'
+echo ''
 echo '-------------Creating passfile----------------'
 echo ''
 
 sudo tee $HOME/massapasswd > /dev/null <<EOF
 $massapwd
 EOF
-sleep 2
+
 mkdir /root/massa_backup
+
 sleep 2
 
 echo ''
@@ -98,12 +99,11 @@ sleep 2
 echo ''
 echo '-------------- Gettin our ip -----------------'
 echo ''
-wget -qO- ifconfig.co
+curl icanhazip.com
 echo ''
-sleep 2
 sudo tee <<EOF >/dev/null $HOME/massa/massa-node/config/config.toml
 [network]
-routable_ip = "`wget -qO- ifconfig.co`"
+routable_ip = "`curl icanhazip.com`"
 EOF
 sleep 2
 

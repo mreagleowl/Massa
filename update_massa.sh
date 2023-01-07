@@ -13,11 +13,10 @@ EOF
 sleep 2
 
 echo ''
-echo '-------Backup keys, wallet and whitelist------'
+echo '------------Backup key and wallet ------------'
 echo ''
 cp /root/massa/massa-client/wallet.dat /root/massa_backup
 cp /root/massa/massa-node/config/node_privkey.key /root/massa_backup
-cp /root/massa/massa-node/base_config/bootstrap_whitelist.json /root/massa_backup
 sleep 2
 echo ''
 echo '------------Removing old Massa----------------'
@@ -39,12 +38,11 @@ sleep 2
 echo ''
 echo '-------------- Gettin our ip -----------------'
 echo ''
-wget -qO- ifconfig.co
+routable_ip = "`curl icanhazip.com`"
 echo ''
-sleep 2
 sudo tee <<EOF >/dev/null $HOME/massa/massa-node/config/config.toml
 [network]
-routable_ip = "`wget -qO- ifconfig.co`"
+routable_ip = "`routable_ip = "`curl icanhazip.com`"`"
 EOF
 sleep 2
 echo ''
@@ -52,7 +50,6 @@ echo '--------Restoring old key and wallet----------'
 echo ''
 cp /root/massa_backup/wallet.dat /root/massa/massa-client/
 cp /root/massa_backup/node_privkey.key /root/massa/massa-node/config/ 
-# cp /root/massa_backup/bootstrap_whitelist.json /root/massa/massa-node/base_config/ 
 sleep 2
 
 function bootstrap {
@@ -91,8 +88,6 @@ echo ''
 echo '--------------- Reconfig daemon --------------' 
 echo ''
 sleep 2
-sudo systemctl daemon-reload
-sudo systemctl enable massad
-rm /root/up_massa.sh
-#sudo systemctl restart massad
+sudo systemctl daemon-reload && sudo systemctl enable massad && sudo systemctl restart massad
+#rm /root/up_massa.sh
 #sudo journalctl -f -n 100 -u massad
