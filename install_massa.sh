@@ -110,7 +110,7 @@ sleep 2
 echo ''
 echo '---------- Adding bootstrap nodes ------------'
 echo ''
-function replace_bootstraps {
+function bootstrap {
 	config_path="$HOME/massa/massa-node/base_config/config.toml"
 	bootstrap_list=`wget -qO- https://github.com/mreagleowl/Massa/blob/master/bootstraplist/bootstrap_list.txt | shuf -n50 | awk '{ print "        "$0"," }'`
 	len=`wc -l < "$config_path"`
@@ -129,8 +129,11 @@ ${bootstrap_list}
 	#grep bootstrap_whitelist_file $config_path || sed -i "/\[bootstrap\]/a  bootstrap_whitelist_file = \"base_config/bootstrap_whitelist.json\"" "$config_path"
 	#grep bootstrap_blacklist_file $config_path || sed -i "/\[bootstrap\]/a  bootstrap_blacklist_file = \"base_config/bootstrap_blacklist.json\"" "$config_path"
   #sudo systemctl restart massa
+  wget -P $HOME/massa/massa-node/base_config/ https://github.com/mreagleowl/Massa/blob/master/whitelist/bootstrap_whitelist.json
+  echo '....done'
 }
 
+bootstrap
 
 cd $HOME/massa/massa-node/
 ./massa-node -p $massapwd

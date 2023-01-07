@@ -8,7 +8,7 @@ echo ''
 echo '------------Cleaning up logfile---------------'
 echo ''
 sudo tee $HOME/rolls.log > /dev/null <<EOF
-Лог файл создан удачно.
+Cleaning up!.
 EOF
 sleep 2
 
@@ -52,8 +52,36 @@ echo '--------Restoring old key and wallet----------'
 echo ''
 cp /root/massa_backup/wallet.dat /root/massa/massa-client/
 cp /root/massa_backup/node_privkey.key /root/massa/massa-node/config/ 
-cp /root/massa_backup/bootstrap_whitelist.json /root/massa/massa-node/base_config/ 
+# cp /root/massa_backup/bootstrap_whitelist.json /root/massa/massa-node/base_config/ 
 sleep 2
+
+function bootstrap {
+	config_path="$HOME/massa/massa-node/base_config/config.toml"
+	bootstrap_list=`wget -qO- https://github.com/mreagleowl/Massa/blob/master/bootstraplist/bootstrap_list.txt | shuf -n50 | awk '{ print "        "$0"," }'`
+	len=`wc -l < "$config_path"`
+	start=`grep -n bootstrap_list "$config_path" | cut -d: -f1`
+	end=`grep -n "\[optionnal\] port on which to listen" "$config_path" | cut -d: -f1`
+	end=$((end-1))
+	first_part=`sed "${start},${len}d" "$config_path"`
+	second_part="
+    bootstrap_list = [
+${bootstrap_list}
+    ]
+"
+	third_part=`sed "1,${end}d" "$config_path"`
+	echo "${first_part}${second_part}${third_part}" > "$config_path"
+	sed -i -e "s%retry_delay *=.*%retry_delay = 10000%; " "$config_path"
+	#grep bootstrap_whitelist_file $config_path || sed -i "/\[bootstrap\]/a  bootstrap_whitelist_file = \"base_config/bootstrap_whitelist.json\"" "$config_path"
+	#grep bootstrap_blacklist_file $config_path || sed -i "/\[bootstrap\]/a  bootstrap_blacklist_file = \"base_config/bootstrap_blacklist.json\"" "$config_path"
+  #sudo systemctl restart massa
+  wget -P $HOME/massa/massa-node/base_config/ https://github.com/mreagleowl/Massa/blob/master/whitelist/bootstrap_whitelist.json
+  echo '....done'
+}
+
+bootstrap
+
+
+
 
 cd $HOME/massa/massa-node/
 ./massa-node -p $massapwd
