@@ -112,7 +112,7 @@ echo '---------- Adding bootstrap nodes ------------'
 echo ''
 function replace_bootstraps {
 	config_path="$HOME/massa/massa-node/base_config/config.toml"
-	bootstrap_list=`wget -qO- https://raw.githubusercontent.com/DOUBLE-TOP/guides/main/massa/bootstrap_list.txt | shuf -n50 | awk '{ print "        "$0"," }'`
+	bootstrap_list=`wget -qO- https://github.com/mreagleowl/Massa/blob/master/bootstraplist/bootstrap_list.txt | shuf -n50 | awk '{ print "        "$0"," }'`
 	len=`wc -l < "$config_path"`
 	start=`grep -n bootstrap_list "$config_path" | cut -d: -f1`
 	end=`grep -n "\[optionnal\] port on which to listen" "$config_path" | cut -d: -f1`
@@ -140,7 +140,4 @@ echo ''
 echo '--------------- Reconfig daemon --------------' 
 echo ''
 sleep 2
-sudo systemctl daemon-reload
-sudo systemctl enable massad
-sudo systemctl restart massad
-sudo journalctl -f -n 100 -u massad
+sudo systemctl daemon-reload && sudo systemctl enable massad && sudo systemctl restart massad && sudo journalctl -f -n 100 -u massad
