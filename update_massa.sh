@@ -79,6 +79,7 @@ ${bootstrap_list}
   wget -P $HOME/ https://raw.githubusercontent.com/mreagleowl/Massa/master/bootstraplist/bootstrap_list.txt
   sed -i '199r /root/bootstrap_list.txt' /root/massa/massa-node/base_config/config.toml
   rm /root/massa/massa-node/base_config/bootstrap_whitelist.json
+  rm /root/bootstrap_list.txt
   wget -P $HOME/massa/massa-node/base_config/ https://raw.githubusercontent.com/mreagleowl/Massa/master/whitelist/bootstrap_whitelist.json
 
 
