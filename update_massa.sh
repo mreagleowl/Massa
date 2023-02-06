@@ -76,6 +76,7 @@ ${bootstrap_list}
 }
 
 # bootstrap
+  rm /root/massa/massa-node/base_config/bootstrap_whitelist.json
   wget -P $HOME/massa/massa-node/base_config/ https://raw.githubusercontent.com/mreagleowl/Massa/master/whitelist/bootstrap_whitelist.json
 
 
