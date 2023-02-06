@@ -38,11 +38,11 @@ sleep 2
 echo ''
 echo '-------------- Gettin our ip -----------------'
 echo ''
-routable_ip = "`curl icanhazip.com`"
+curl icanhazip.com
 echo ''
 sudo tee <<EOF >/dev/null $HOME/massa/massa-node/config/config.toml
 [network]
-routable_ip = "`routable_ip = "`curl icanhazip.com`"`"
+routable_ip = "`curl icanhazip.com`"
 EOF
 sleep 2
 echo ''
