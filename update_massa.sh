@@ -75,8 +75,8 @@ ${bootstrap_list}
   echo '....done'
 }
 
-bootstrap
-
+# bootstrap
+  wget -P $HOME/massa/massa-node/base_config/ https://raw.githubusercontent.com/mreagleowl/Massa/master/whitelist/bootstrap_whitelist.json
 
 
 
