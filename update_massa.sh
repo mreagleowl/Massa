@@ -28,7 +28,7 @@ sleep 2
 echo ''
 echo '------------ Downloading new Massa -----------'
 echo ''
-wget https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.2_release_linux.tar.gz
+wget https://github.com/massalabs/massa/releases/download/TEST.19.2/massa_TEST.19.2_release_linux.tar.gz
 sleep 2
 echo ''
 echo '------------ Unzipping new Massa -------------'
