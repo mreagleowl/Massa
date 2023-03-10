@@ -17,8 +17,8 @@ sleep 2
 echo ''
 echo '------------Backup key and wallet ------------'
 echo ''
-#cp /root/massa/massa-client/wallet.dat /root/massa_backup
-#cp /root/massa/massa-node/config/node_privkey.key /root/massa_backup
+cp /root/massa/massa-client/wallet.dat /root/massa_backup
+cp /root/massa/massa-node/config/node_privkey.key /root/massa_backup
 sleep 2
 echo ''
 echo '------------Removing old Massa----------------'
