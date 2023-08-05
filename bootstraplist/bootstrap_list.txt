@@ -10,7 +10,6 @@
         ["37.57.37.92:31245", "N12rMsczur17BUFkaoUiSR5kW21UFY758N1HoHtRsuuyotS2LSEe"],
         ["149.202.86.103:31245", "N12UbyLJDS7zimGWf3LTHe8hYY67RdLke1iDRZqJbQQLHQSKPW8j"],
         ["149.202.89.125:31245", "N12vxrYTQzS5TRzxLfFNYxn6PyEsphKWkdqx2mVfEuvJ9sPF43uq"],
-        ["158.69.120.215:31245", "N12rPDBmpnpnbECeAKDjbmeR19dYjAUwyLzsa8wmYJnkXLCNF28E"],
         ["158.69.23.120:31245", "N1XxexKa3XNzvmakNmPawqFrE9Z2NFhfq1AhvV1Qx4zXq5p1Bp9"],
         ["198.27.74.5:31245", "N1qxuqNnx9kyAMYxUfsYiv2gQd5viiBX126SzzexEdbbWd2vQKu"],
         ["198.27.74.52:31245", "N1hdgsVsd4zkNp8cF1rdqqG6JPRQasAmx12QgJaJHBHFU1fRHEH"],
