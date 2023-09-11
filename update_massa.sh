@@ -14,12 +14,12 @@ Cleaning up!.
 EOF
 sleep 2
 
-echo ''
-echo '------------Backup key and wallet ------------'
-echo ''
-cp /root/massa/massa-client/wallet.dat /root/massa_backup
-cp /root/massa/massa-node/config/node_privkey.key /root/massa_backup
-sleep 2
+#echo ''
+#echo '------------Backup key and wallet ------------'
+#echo ''
+#cp /root/massa/massa-client/wallet.dat /root/massa_backup
+#cp /root/massa/massa-node/config/node_privkey.key /root/massa_backup
+#sleep 2
 echo ''
 echo '------------Removing old Massa----------------'
 echo ''
@@ -47,12 +47,12 @@ sudo tee <<EOF >/dev/null $HOME/massa/massa-node/config/config.toml
 routable_ip = "`curl icanhazip.com`"
 EOF
 sleep 2
-echo ''
-echo '--------Restoring old key and wallet----------'
-echo ''
-cp /root/massa_backup/wallet.dat /root/massa/massa-client/
-cp /root/massa_backup/node_privkey.key /root/massa/massa-node/config/ 
-sleep 2
+#echo ''
+#echo '--------Restoring old key and wallet----------'
+#echo ''
+#cp /root/massa_backup/wallet.dat /root/massa/massa-client/
+#cp /root/massa_backup/node_privkey.key /root/massa/massa-node/config/ 
+#sleep 2
 
 function bootstrap {
 	config_path="$HOME/massa/massa-node/base_config/config.toml"
