@@ -49,7 +49,7 @@ sleep 2
 rm /root/massa_MAIN.*.tar.gz
 sleep 2 
 echo ''
-echo '-------------- Gettin our ip -----------------'
+echo '-------------- Get ip -----------------'
 echo ''
 curl icanhazip.com
 echo ''
