@@ -37,14 +37,14 @@ sleep 2
 echo ''
 echo '------------ Downloading new Massa -----------'
 echo ''
-wget https://github.com/massalabs/massa/releases/download/MAIN.2.0/massa_MAIN.2.0_release_linux.tar.gz
+wget https://github.com/massalabs/massa/releases/download/MAIN.2.3/massa_MAIN.2.3_release_linux.tar.gz
 
 sleep 2
 
 echo ''
 echo '------------ Unzipping new Massa -------------'
 echo ''
-tar zxvf massa_MAIN.2.0_release_linux.tar.gz
+tar zxvf massa_MAIN.2.3_release_linux.tar.gz
 sleep 2
 rm /root/massa_MAIN.*.tar.gz
 sleep 2 
