@@ -28,12 +28,12 @@ sleep 2
 echo ''
 echo '------------ Downloading new Massa -----------'
 echo ''
-wget https://github.com/massalabs/massa/releases/download/TEST.26.1/massa_TEST.26.1_release_linux.tar.gz
+wget https://github.com/massalabs/massa/releases/download/TEST.XX.X/massa_TEST.XX.X_release_linux.tar.gz
 sleep 2
 echo ''
 echo '------------ Unzipping new Massa -------------'
 echo ''
-tar zxvf massa_TEST.26.1_release_linux.tar.gz
+tar zxvf massa_TEST.XX.X_release_linux.tar.gz
 sleep 2
 rm /root/massa_TEST.*.tar.gz
 sleep 2 
