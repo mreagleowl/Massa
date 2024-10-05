@@ -3,7 +3,7 @@
 cd /root/massa/massa-client
 #Set variables
 catt=/usr/bin/cat
-passwd=xxx
+passwd=YOUR_PASSWORD_HERE
 candidat=$(./massa-client wallet_info -p "$passwd"|grep 'Rolls'|awk '{print $4}'| sed 's/=/ /'|awk '{print $2}')
 massa_wallet_address=$(./massa-client -p "$passwd" wallet_info |grep 'Address'|awk '{print $2}')
 tmp_final_balans=$(./massa-client -p "$passwd" wallet_info |grep 'Balance'|awk '{print $3}'| sed 's/=/ /'|sed 's/,/ /'|awk '{print $2}')
