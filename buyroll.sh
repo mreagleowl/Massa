@@ -1,5 +1,6 @@
 #!/bin/sh
 #Ver. 1.0 mainnet
+#Thanks for Merlin
 cd /root/massa/massa-client
 #Set variables
 catt=/usr/bin/cat
